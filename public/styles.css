@@ -9,34 +9,36 @@ body,
 
 /* 헤더 스타일: 진한 노란색 배경, 중앙 정렬 */
 h1 {
-  background-color: #fbc02d; /* 진한 노란색 */
+  background-color: #f5ba13; /* 진한 노란색 */
   padding: 10px;
   border-radius: 5px;
   text-align: left;
   margin-bottom: 20px;
-  color: #000;
+  color: #fff;
+  font-weight: 200;
 }
 
-/* 노트 입력과 생성된 노트가 공유하는 카드 스타일 */
-.note-input-container,
-.note {
-  background-color: #ffffff; /* 흰색 배경 */
+/* 노트 입력 카드 스타일 */
+.note-input-container {
+  position: relative;
+  width: 480px;
+  margin: 30px auto 20px auto;
+  background-color: #fff; /* 흰색 배경 */
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 250px;
 }
 
 /* 신규 노트 입력 영역 스타일 */
 .note-input-container input,
 .note-input-container textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: none;
+  padding: 4px;
+  outline: none;
+  font-size: 1.2em;
+  resize: none;
 }
 
 /* 신규 노트 추가 버튼 스타일 (입력 카드 내부) */
@@ -49,14 +51,19 @@ h1 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  color: #000;
+  color: #fff;
 }
 
-/* 노트 목록을 grid 레이아웃으로 배치 */
-.note-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 20px;
+/* 생성된 노트 카드 스타일 */
+.note {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  width: 240px;
+  margin: 16px;
+  float: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* 노트 헤더: 제목과 삭제 버튼 */
@@ -70,6 +77,27 @@ h1 {
 .note-header h2 {
   margin: 0;
   cursor: pointer;
+  font-size: 1.1em;
+}
+
+/* 노트 내용 스타일: 클릭 시 수정 모드로 전환 (커서 포인터) */
+.note-content p {
+  font-size: 1.1em;
+  cursor: pointer;
+  margin: 10px 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* 수정 모드에서 사용하는 input과 textarea 스타일 */
+.note-content input,
+.note-content textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: none;
+  font-size: 1.2em;
+  resize: none;
 }
 
 /* 삭제 버튼 스타일: 입력 카드와 일치하도록 */
@@ -80,18 +108,5 @@ h1 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  color: #000;
-}
-
-/* 노트 내용 스타일: 클릭 시 수정 모드로 전환 (커서 포인터) */
-.note-content p {
-  cursor: pointer;
-  margin: 10px 0;
-}
-
-/* 수정 모드에서 사용하는 input과 textarea 스타일 */
-.note-content input,
-.note-content textarea {
-  width: 100%;
-  font-size: 16px;
+  color: #fff;
 }

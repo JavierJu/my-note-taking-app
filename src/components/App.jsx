@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
 
 function App() {
   // 새로운 노트 입력을 위한 상태: 제목과 내용
@@ -71,20 +70,20 @@ function App() {
 
   return (
     <div className="App">
-      <h1>노트 앱</h1>
+      <h1>Note Keeper</h1>
       <div className="note-input-container">
         <input
           type="text"
           value={currentTitle}
           onChange={(e) => setCurrentTitle(e.target.value)}
-          placeholder="노트 제목을 입력하세요..."
+          placeholder="Title..."
         />
         <textarea
           value={currentContent}
           onChange={(e) => setCurrentContent(e.target.value)}
-          placeholder="노트 내용을 입력하세요..."
+          placeholder="Take a note..."
         />
-        <button onClick={addNote}>추가</button>
+        <button onClick={addNote}>Add</button>
       </div>
       <div className="note-list">
         {notes.map((note) => (
@@ -106,7 +105,7 @@ function App() {
                 className="delete-btn"
                 onClick={(e) => deleteNote(note.id, e)}
               >
-                삭제
+                Delete
               </button>
             </div>
             <div className="note-content">
