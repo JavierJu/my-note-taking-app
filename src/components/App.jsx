@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+import NoteInput from "./NoteInput";
 
 function App() {
   // 새로운 노트 입력을 위한 상태: 제목과 내용
@@ -70,61 +73,53 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Note Keeper</h1>
-      <div className="note-input-container">
-        <input
-          type="text"
-          value={currentTitle}
-          onChange={(e) => setCurrentTitle(e.target.value)}
-          placeholder="Title..."
-        />
-        <textarea
-          value={currentContent}
-          onChange={(e) => setCurrentContent(e.target.value)}
-          placeholder="Take a note..."
-        />
-        <button onClick={addNote}>Add</button>
-      </div>
-      <div className="note-list">
-        {notes.map((note) => (
-          <div key={note.id} className="note">
-            <div className="note-header">
-              {editing.noteId === note.id && editing.field === "title" ? (
-                <input
-                  autoFocus
-                  value={editing.value}
-                  onChange={handleChangeEditing}
-                  onBlur={commitEdit}
-                />
-              ) : (
-                <h2 onClick={() => handleEditStart(note, "title")}>
-                  {note.title}
-                </h2>
-              )}
-              <button
-                className="delete-btn"
-                onClick={(e) => deleteNote(note.id, e)}
-              >
-                Delete
-              </button>
-            </div>
-            <div className="note-content">
-              {editing.noteId === note.id && editing.field === "content" ? (
-                <textarea
-                  autoFocus
-                  value={editing.value}
-                  onChange={handleChangeEditing}
-                  onBlur={commitEdit}
-                />
-              ) : (
-                <p onClick={() => handleEditStart(note, "content")}>
-                  {note.content}
-                </p>
-              )}
-            </div>
+      <Header />
+      <NoteInput
+        currentTitle={currentTitle}
+        setCurrentTitle={setCurrentTitle}
+        currentContent={currentContent}
+        setCurrentContent={setCurrentContent}
+        addNote={addNote}
+      />
+      {notes.map((note) => (
+        <div key={note.id} className="note">
+          <div className="note-header">
+            {editing.noteId === note.id && editing.field === "title" ? (
+              <input
+                autoFocus
+                value={editing.value}
+                onChange={handleChangeEditing}
+                onBlur={commitEdit}
+              />
+            ) : (
+              <h2 onClick={() => handleEditStart(note, "title")}>
+                {note.title}
+              </h2>
+            )}
+            <button
+              className="delete-btn"
+              onClick={(e) => deleteNote(note.id, e)}
+            >
+              Delete
+            </button>
           </div>
-        ))}
-      </div>
+          <div className="note-content">
+            {editing.noteId === note.id && editing.field === "content" ? (
+              <textarea
+                autoFocus
+                value={editing.value}
+                onChange={handleChangeEditing}
+                onBlur={commitEdit}
+              />
+            ) : (
+              <p onClick={() => handleEditStart(note, "content")}>
+                {note.content}
+              </p>
+            )}
+          </div>
+        </div>
+      ))}
+      <Footer />
     </div>
   );
 }
