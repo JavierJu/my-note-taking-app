@@ -1,4 +1,5 @@
 import React from "react";
+import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 
 function Note({
   note,
@@ -35,7 +36,7 @@ function Note({
         )}
       </div>
       <button className="delete-btn" onClick={(e) => deleteNote(note.id, e)}>
-        Delete
+        <DeleteRoundedIcon />
       </button>
     </div>
   );
