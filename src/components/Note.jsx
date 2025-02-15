@@ -21,9 +21,6 @@ function Note({
         ) : (
           <h2 onClick={() => handleEditStart(note, "title")}>{note.title}</h2>
         )}
-        <button className="delete-btn" onClick={(e) => deleteNote(note.id, e)}>
-          Delete
-        </button>
       </div>
       <div className="note-content">
         {editing.noteId === note.id && editing.field === "content" ? (
@@ -37,6 +34,9 @@ function Note({
           <p onClick={() => handleEditStart(note, "content")}>{note.content}</p>
         )}
       </div>
+      <button className="delete-btn" onClick={(e) => deleteNote(note.id, e)}>
+        Delete
+      </button>
     </div>
   );
 }
