@@ -39,7 +39,7 @@ function App() {
       title: currentTitle,
       content: currentContent,
     };
-    setNotes([newNote, ...notes]);
+    setNotes([...notes, newNote]);
     setCurrentTitle("");
     setCurrentContent("");
   };
