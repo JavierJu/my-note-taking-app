@@ -71,8 +71,11 @@ footer {
 
 /* 신규 노트 추가 버튼 스타일 (입력 카드 내부) */
 .note-input-container button {
-  position: relative;
-  width: 100%;
+  /* position: relative;
+  float: right; */
+  position: absolute;
+  right: 10px;
+  bottom: -20px;
   padding: 10px;
   font-size: 16px;
   background-color: #fbc02d;
@@ -151,6 +154,7 @@ footer {
 /* 삭제 버튼 스타일: 입력 카드와 일치하도록 */
 .delete-btn {
   position: relative;
+  float: right;
   padding: 5px 10px;
   font-size: 14px;
   background-color: #fbc02d;
