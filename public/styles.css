@@ -5,7 +5,7 @@
 }
 
 html {
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 /* 전체 페이지 배경: 아주 연한 노란색 */
@@ -20,7 +20,7 @@ body,
 /* 헤더 스타일: 진한 노란색 배경, 중앙 정렬 */
 header {
   background-color: #f5ba13;
-  margin: auto -16px;
+  margin: auto -32px;
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
@@ -49,6 +49,8 @@ footer {
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 16px; /* 기준 폰트 사이즈 지정 */
+  font-family: Arial, sans-serif;
 }
 
 /* 신규 노트 입력 영역 스타일 */
@@ -60,6 +62,11 @@ footer {
   outline: none;
   font-size: 1.2em;
   resize: none;
+  font-family: Arial, sans-serif;
+}
+
+.note-input-container textarea {
+  min-height: 100px; /* 원하는 기본 높이로 설정 */
 }
 
 /* 신규 노트 추가 버튼 스타일 (입력 카드 내부) */
@@ -85,6 +92,7 @@ footer {
   margin: 16px;
   float: left;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
 }
 
 /* 노트 헤더: 제목과 삭제 버튼 */
@@ -99,6 +107,8 @@ footer {
   margin: 0;
   cursor: pointer;
   font-size: 1.1em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 /* 노트 내용 스타일: 클릭 시 수정 모드로 전환 (커서 포인터) */
@@ -108,17 +118,30 @@ footer {
   margin: 10px 0;
   white-space: pre-wrap;
   word-wrap: break-word;
+  min-height: 100px; /* 원하는 기본 높이로 설정 */
 }
 
 /* 수정 모드에서 사용하는 input과 textarea 스타일 */
-.note-content input,
+.note-header input,
 .note-content textarea {
   width: 100%;
   border: none;
-  padding: 4px;
   outline: none;
-  font-size: 1.2em;
+  font-size: 1.1em; /* h2, p와 동일한 폰트 크기 */
   resize: none;
+  text-align: left;
+  background: transparent; /* 배경을 투명하게 하여 노트의 배경과 일치 */
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0; /* 기본 마진 제거 */
+  padding: 0; /* 필요하다면 패딩도 조정 */
+  font-family: Arial, sans-serif;
+}
+
+/* 노트 내용 영역의 textarea는 p와 같은 margin 적용 */
+.note-content textarea {
+  margin: 10px 0;
+  min-height: 96px; /* 원하는 기본 높이로 설정 */
 }
 
 /* 삭제 버튼 스타일: 입력 카드와 일치하도록 */
