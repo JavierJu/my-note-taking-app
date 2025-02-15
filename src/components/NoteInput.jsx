@@ -1,5 +1,5 @@
 import React from "react";
-
+import AddBoxRoundedIcon from "@mui/icons-material/AddBoxRounded";
 function NoteInput({
   currentTitle,
   setCurrentTitle,
@@ -20,7 +20,9 @@ function NoteInput({
         onChange={(e) => setCurrentContent(e.target.value)}
         placeholder="Take a note..."
       />
-      <button onClick={addNote}>Add</button>
+      <button onClick={addNote}>
+        <AddBoxRoundedIcon />
+      </button>
     </div>
   );
 }
