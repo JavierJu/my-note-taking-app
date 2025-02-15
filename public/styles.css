@@ -42,6 +42,7 @@ footer {
 /* 노트 입력 카드 스타일 */
 .note-input-container {
   position: relative;
+  float: left;
   width: 480px;
   margin: 30px auto 20px auto;
   background-color: #fff; /* 흰색 배경 */
